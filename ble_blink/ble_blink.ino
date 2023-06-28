@@ -1,7 +1,10 @@
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
-  pinMode(13, OUTPUT);
+  pinMode(A0, OUTPUT);
+  pinMode(A1, OUTPUT);
+  pinMode(A2, OUTPUT);
+  pinMode(A3, OUTPUT);
 }
 
 void loop() {
@@ -9,11 +12,17 @@ void loop() {
   if (Serial.available()) {
     char data = Serial.read();
     switch (data) {
-      case '1': 
-        digitalWrite(13, HIGH); 
-        break;
       case '0': 
-        digitalWrite(13, LOW);
+        analogWrite(A0, 200); 
+        break;
+      case '1': 
+        analogWrite(A1, 200);
+        break;
+      case '2': 
+        analogWrite(A2, 200);
+        break;
+      case '3': 
+        analogWrite(A3, 200);
         break;
       default: 
         break;
